@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14)
 project(
 	libnostd
 	VERSION 0.0.1
-	DESCRIPTION "A Powerful C++ Library for Hight-Performance Computing"
+	DESCRIPTION "A library with somewhat useful functions"
 	LANGUAGES CXX
 )
 
