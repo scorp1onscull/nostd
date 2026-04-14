@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build:
-  runs-on: ubuntu-lates
+  runs-on: ubuntu-latest
   steps:
     -  uses: actions/chechkout@v4
     -  name: Build source code
