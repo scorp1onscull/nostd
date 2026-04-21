@@ -1,0 +1,10 @@
+^C:\USERS\ST142661\DESKTOP\VSCODE PROJECTS\LIBNOSTD\NOSTD\EXAMPLES\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/st142661/Desktop/vscode projects/libnostd/nostd" "-BC:/Users/st142661/Desktop/vscode projects/libnostd/nostd/build" --check-stamp-file "C:/Users/st142661/Desktop/vscode projects/libnostd/nostd/build/examples/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

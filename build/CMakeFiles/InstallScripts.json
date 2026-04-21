@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/st142661/Desktop/vscode projects/libnostd/nostd/build/cmake_install.cmake",
+		"C:/Users/st142661/Desktop/vscode projects/libnostd/nostd/build/examples/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

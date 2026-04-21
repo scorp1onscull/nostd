@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\st142661\Desktop\vscode projects\libnostd\nostd\examples\example-01.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\st142661\Desktop\vscode projects\libnostd\nostd\src\libnostd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\st142661\Desktop\vscode projects\libnostd\nostd\examples\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5A6221CD-426A-3B1F-97DA-64DD6E73A2A1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
