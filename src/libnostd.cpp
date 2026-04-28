@@ -1,9 +1,9 @@
 /**
  * @file
- * @brief A Powerful C++ Library for High-Performance Computing
+ * @brief A library with a mix of somewhat useful functions for C++
  * @version 0.1.0
  * @date 2026-04-21
- * @authors svpogozhev
+ * @authors scorp1onscull
  * @copyright MIT License
  */
 #include <iostream>
