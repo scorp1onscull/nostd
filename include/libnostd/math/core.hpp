@@ -25,6 +25,15 @@ namespace math {
      * @return      Число, возведенное в степень \f$ {base}^{exp} \f$.
      */
 	double fast_power(double base, unsigned long long exp);
+	/**
+     * @brief       Вычисление корня из числа по формуле Герона
+     * @details     Берем корень из числа что тут еще сказать
+	 *				Если последний бит 1 (не равен 0), домножаем результат на base.
+     * @param[in]   num Положительное вещественное число
+     * @return      Квадратный корень из числа
+     */
+	double sqrt_heron(double num);
+
 
 }
 
