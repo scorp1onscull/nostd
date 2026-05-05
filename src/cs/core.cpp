@@ -2,7 +2,7 @@
  * @file
  * @brief Core utils for computer science
  * @date 2026-04-21
- * @authors scorp1onscull
+ * @authors svpogozhev
  * @copyright MIT License
  */
 #include <string>
@@ -50,15 +50,15 @@ namespace cs {
 		}
 		return decimal;
 	}
+
 	std::string dec2bin(unsigned int decimal){
 		std::string binary;
 		binary.reserve(sizeof(decimal) * 8);
 		do {
-			binary += std::to_string(decimal%2);
+			binary += std::to_string(decimal % 2);
 			decimal >>= 1;
 		} while (decimal != 0);
 		std::reverse(binary.begin(), binary.end());
 		return binary;
 	}
-
 }
