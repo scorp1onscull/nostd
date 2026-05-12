@@ -78,7 +78,7 @@ TEST(MATH, invmod){
     }
 }
 TEST(MATH, gcdex){
-    using math::invmod;
+    using math::gcdex;
     unsigned long a = 70;
     unsigned long b = 18;
     unsigned long x = 0;
