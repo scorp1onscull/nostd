@@ -2,7 +2,7 @@
  * @file
  * @brief Core utils for computer science
  * @date 2026-04-21
- * @authors svpogozhev
+ * @authors scorp1oncull
  * @copyright MIT License
  */
 #include <string>
