@@ -3,7 +3,7 @@
  * @brief Core common for libnostd
  * @version 0.1.0
  * @date 2026-04-21
- * @authors svpogozhev
+ * @authors scorp1onscull
  * @copyright MIT License
  */
 #include <iostream>
