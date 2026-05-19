@@ -49,40 +49,109 @@ TEST(MATH, prod) {
     EXPECT_EQ(prod(8, 13, mod), 1'235'520);
 }
 
+TEST(MATH, binpowmod) {
+	using math::binpowmod;
+    unsigned long mod = 1'000'000'007;
+	EXPECT_EQ(binpowmod(2, 3, mod), 8);
+    EXPECT_EQ(binpowmod(2, 3, 7), 1);
+    EXPECT_EQ(binpowmod(10, 6, mod), 1'000'000);
+    EXPECT_EQ(binpowmod(1, 1000, mod), 1);
+    EXPECT_EQ(binpowmod(1000, 1, mod), 1000);
+    EXPECT_EQ(binpowmod(2, 0, mod), 1);
+    EXPECT_EQ(binpowmod(0, 3, mod), 0);
+    EXPECT_EQ(binpowmod(0, 0, mod), 1);
+}
+
+TEST(MATH, invmod) {
+    using math::invmod;
+    unsigned long mod = 13;
+	for(unsigned long a = 1; a < mod; ++a){
+		EXPECT_EQ((invmod(a, mod) * a) % mod, 1);
+	}
+}
+
+TEST(MATH, gcdex) {
+    using math::gcdex;
+	unsigned long a = 70;
+	unsigned long b = 18;
+	unsigned long x = 0;
+	unsigned long y = 0;
+	unsigned long d = gcdex(a, b, x, y);
+	EXPECT_EQ( a * x + b * y, d );
+
+	for(int i = 0; i < 10; ++i) {
+		a = rand()%10000;
+		b = rand()%10000;
+		d = gcdex(a, b, x, y);
+		EXPECT_EQ( a * x + b * y, d );
+	}
+
+	EXPECT_EQ( gcdex(0, 100, x, y), 100);
+	EXPECT_EQ( gcdex(100, 0, x, y), 100);
+}
+
+
 TEST(MATH_STATISTICS, binomial) {
-	unsigned long mod = 1'000'000'007;
-	EXPECT_EQ( math::statistics::binomial(3, 2, mod), 3);
+    unsigned long mod = 1'000'000'007;
+    EXPECT_EQ( math::statistics::binomial(3, 2, mod), 3);
     using math::statistics::binomial;
     EXPECT_EQ(binomial(3, 0, mod), 1);
     EXPECT_EQ(binomial(10, 1, mod), 10);
     EXPECT_EQ(binomial(10, 10, mod), 1);
     EXPECT_EQ(binomial(10, 11, mod), 0);
 }
-TEST(MATH, binpowmod){
-    using math::binpowmod;
-    unsigned long mod = 1'000'000'007;
-    EXPECT_EQ(binpowmod(2, 3, mod), 8);
-    EXPECT_EQ(binpowmod(2, 3, 7), 1);
-    EXPECT_EQ(binpowmod(10, 6, mod), 1000000);
-    EXPECT_EQ(binpowmod(1, 4646346, mod), 1);
-    EXPECT_EQ(binpowmod(1000, 1, mod), 1000);
-    EXPECT_EQ(binpowmod(2, 0, mod), 1);
-    EXPECT_EQ(binpowmod(0, 3, mod), 0);
-    EXPECT_EQ(binpowmod(0, 0, mod), 1);
-}
-TEST(MATH, invmod){
-    using math::invmod;
-    unsigned long mod = 13;
-    for (unsigned long a = 1; a < mod; ++a){
-        EXPECT_EQ((invmod(a, mod) * a) % mod, 1);
+
+TEST(MATH_STATISTICS, mean) {
+	using math::statistics::mean;
+	{
+		double M[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+		int n = sizeof(M) / sizeof(M[0]);
+		EXPECT_DOUBLE_EQ( mean(M, n), 1);
+	}
+    {
+        double M[] = {10};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( mean(M, n), 10);
     }
+
+    {
+        double M[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( mean(M, n), 5);
+    }
+
+    {
+        double M[] = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( mean(M, n), 0);
+    }
+
 }
-TEST(MATH, gcdex){
-    using math::gcdex;
-    unsigned long a = 70;
-    unsigned long b = 18;
-    unsigned long x = 0;
-    unsigned long y = 0;
-    unsigned long d = gcdex(a, b, x, y);
-    EXPECT_EQ(a*x + b*y, d);
+
+TEST(MATH_STATISTICS, var) {
+    using math::statistics::var;
+    {
+        double M[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( var(M, n), 0);
+    }
+
+    {
+        double M[] = {1, -1, 1, -1, 1, -1, 1, -1, 1, -1};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( var(M, n), 1.0);
+    }
+
+    {
+        double M[] = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( var(M, n), 10.0);
+    }
+
+    {
+        double M[] = {5};
+        int n = sizeof(M) / sizeof(M[0]);
+        EXPECT_DOUBLE_EQ( var(M, n), 0);
+    }
+
 }
